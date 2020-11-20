@@ -9,13 +9,14 @@ import com.example.students.service.StudentService;
 
 @RestController
 public class StudentController {
-	
+
 	@Autowired
 	private StudentService studentService;
-	
+
 	@GetMapping("/{type}/{marks}")
-	public String updateRecordForStudent(@PathVariable String type,@PathVariable int marks) {
-		return this.studentService.getResult(type,marks)+"%";
+	public String getRecordForStudent(@PathVariable String type, 
+			@PathVariable(name = "marks", required = false) int marks) {
+		return this.studentService.getResult(type, marks) + "%";
 	}
-	
+
 }

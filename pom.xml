@@ -6,7 +6,7 @@
     <artifactId>spring-boot-starter-parent</artifactId>  
     <version>2.4.0</version>  
     <relativePath/>  
-    <!-- lookup parent from repository --> 
+    
   </parent>  
   <groupId>com.example</groupId>  
   <artifactId>students</artifactId>  
@@ -22,15 +22,7 @@
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-web</artifactId> 
     </dependency>  
-    <dependency> 
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-data-jpa</artifactId> 
-    </dependency>  
-    <dependency> 
-      <groupId>com.h2database</groupId>  
-      <artifactId>h2</artifactId>  
-      <scope>runtime</scope> 
-    </dependency>  
+    
     <dependency> 
       <groupId>org.projectlombok</groupId>  
       <artifactId>lombok</artifactId>  
@@ -62,7 +54,7 @@
         <groupId>com.spotify</groupId>  
         <artifactId>docker-maven-plugin</artifactId>  
         <configuration> 
-          <dockerHost>http://localhost:2375</dockerHost>  
+          <dockerHost>http://192.168.29.172:2375</dockerHost>  
           <imageName>Test</imageName>  
           <baseImage>java</baseImage>  
           <entryPoint>["java", "-jar", "/${project.build.finalName}.war"]</entryPoint>  
@@ -75,6 +67,7 @@
           </resources> 
         </configuration> 
       </plugin>  
+      
       <plugin> 
         <groupId>com.microsoft.azure</groupId>  
         <artifactId>azure-webapp-maven-plugin</artifactId>  
@@ -83,7 +76,7 @@
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>students-1605843581218-rg</resourceGroup>
           <appName>students-1605843581218</appName>
-          <pricingTier>P1v2</pricingTier>
+          <pricingTier>B1</pricingTier>
           <region>westeurope</region>
           <runtime>
             <os>linux</os>
