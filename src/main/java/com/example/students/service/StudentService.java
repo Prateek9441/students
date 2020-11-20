@@ -21,13 +21,13 @@ public class StudentService {
 			assignment.add(value);
 			Integer sum = assignment.stream().collect(Collectors.summingInt(Integer::intValue));
 			double ans = (double) sum / (100 * assignment.size());
-			return df2.format(ans * 100 + creditScore);
+			return "After Assignment #"+assignment.size()+" is logged in the system:"+df2.format(ans * 100 + creditScore);
 
 		} else if ("credit".equalsIgnoreCase(type)) {
 			Integer sum = assignment.stream().collect(Collectors.summingInt(Integer::intValue));
 			double ans = (double) sum / (100 * assignment.size());
 			creditScore += 2;
-			return df2.format(ans * 100 + creditScore);
+			return "After Extra Credit Assignment is logged in the system:"+df2.format(ans * 100 + creditScore);
 
 		} else {
 
@@ -38,7 +38,7 @@ public class StudentService {
 
 			double examVal = (double) examSum / (100 * exam.size());
 
-			return df2.format((ans * .101 + examVal * .899) * 100);
+			return "After Exam #"+exam.size()+" is logged in the system:"+df2.format((ans * .101 + examVal * .899) * 100);
 
 		}
 
